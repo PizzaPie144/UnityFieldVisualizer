@@ -76,20 +76,6 @@ namespace FieldVisualizer
             }
         }
 
-        /// <summary>
-        /// For internal use
-        /// </summary>
-        /// <param name="target"></param>
-        //private void VisualizeFields(object target)
-        //{
-        //    Type targetType = target.GetType();
-
-        //    FieldInfo[] myFields = targetType.GetFields(bindingFlags);
-        //    for (int i = 0; i < myFields.Length; i++)
-        //        VisualizeField(myFields[i], target);
-
-        //}
-
         private void VisualizeSingleColumnCollection(FieldInfo myField, object target, GUILayoutOption[] guiLayoutOptionsOverride = null)
         {
             if (myField.GetValue(target) == null)
@@ -217,9 +203,7 @@ namespace FieldVisualizer
                     type = collection.GetType();
 
                 if (collection == null)
-                    collection = (IList)Utility.CreateInstanceOf(type);
-
-                //IList collection = (IList)target;
+                    collection = (IList)Utility.CreateInstanceOf(type);                
 
                 bool isFirst;
                 long currentId = idGenerator.GetId(collection, out isFirst);
